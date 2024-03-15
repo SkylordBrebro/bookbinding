@@ -1,4 +1,4 @@
-package surrender.bookbind.mixin;
+package surrender.spellbinding.mixin;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.player.PlayerEntity;
@@ -21,7 +21,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Item.class)
-public class BookBindMixin {
+public class SpellbindingMixin {
 
 	@Inject(method = "onClicked", at = @At("HEAD"), cancellable = true)
 	public void onBookClick(ItemStack slotStack, ItemStack cursorStack, Slot slot, ClickType clickType, PlayerEntity player, StackReference cursorStackReference, CallbackInfoReturnable<Boolean> cir) {

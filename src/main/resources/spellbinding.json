@@ -1,9 +1,9 @@
 {
 	"required": true,
-	"package": "surrender.bookbind.mixin",
+	"package": "surrender.spellbinding.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"BookBindMixin"
+		"SpellbindingMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

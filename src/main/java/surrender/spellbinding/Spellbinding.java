@@ -1,18 +1,18 @@
-package surrender.bookbind;
+package surrender.spellbinding;
 
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class BookBinding implements ModInitializer {
+public class Spellbinding implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
-    public static final Logger LOGGER = LoggerFactory.getLogger("bookbinding");
+    public static final Logger LOGGER = LoggerFactory.getLogger("Spellbinding");
 
 	@Override
 	public void onInitialize() {
-		LOGGER.info("BookBinding Initialized!");
+		LOGGER.info("Spellbinding Initialized!");
 	}
 }

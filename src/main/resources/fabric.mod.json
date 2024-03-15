@@ -1,26 +1,26 @@
 {
 	"schemaVersion": 1,
-	"id": "bookbinding",
+	"id": "spellbinding",
 	"version": "${version}",
-	"name": "BookBinding",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "Spellbinding",
+	"description": "This Minecraft mod allows players to easily make their own enchanted books!",
 	"authors": [
-		"Me!"
+		"Surrender"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/bookbinding/icon.png",
+	"icon": "assets/spellbinding/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"surrender.bookbind.BookBinding"
+          "surrender.spellbinding.Spellbinding"
 		]
 	},
 	"mixins": [
-		"bookbinding.mixins.json"
+		"spellbinding.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.15.7",
