@@ -68,7 +68,7 @@ public class SpellbindingMixin {
 				cir.setReturnValue(true);
 				return;
 			}
-		} else if (emptySlotCount(player) > 1 && slotStack.getItem() == Items.PAPER && cursorStack.getItem() == Items.LEATHER) {
+		} else if (emptySlotCount(player) >= 1 && slotStack.getItem() == Items.PAPER && cursorStack.getItem() == Items.LEATHER) {
 			turnPaperIntoEnchantedBook(player, slotStack, cursorStack);
 			cir.setReturnValue(true);
 			return;
@@ -88,12 +88,23 @@ public class SpellbindingMixin {
 	}
 	@Unique
 	private int emptySlotCount(PlayerEntity player) {
-		int eSlotCount = 0;
-		for (int i = 0; i < player.getInventory().size()-4; i++) {
-			if (player.getInventory().getStack(i).getItem() == Items.AIR) {
+		int eSlotCount = 1;
+		/*for (int i = 36; i < 45; i++) {
+			if (player.getInventory().getStack(i) != null && player.getInventory().getStack(i).getItem() == Items.AIR) {
 				eSlotCount += 1;
 			}
 		}
+		for (int i = 0; i < 27; i++) {
+			if (player.getInventory().getStack(i) != null && player.getInventory().getStack(i).getItem() == Items.AIR) {
+				eSlotCount += 1;
+			}
+		}*/
+		for (int i = 0; i < player.getInventory().size()-5; i++) {
+			if (player.getInventory().getStack(i) != null && player.getInventory().getStack(i).getItem() == Items.AIR) {
+				eSlotCount += 1;
+			}
+		}
+		System.out.println(eSlotCount);
         return eSlotCount;
     }
 
