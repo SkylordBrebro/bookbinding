@@ -27,8 +27,6 @@ public class SpellbindingMixin {
 		if (slotStack.getItem() == Items.ENCHANTED_BOOK && cursorStack.getItem() == Items.AIR && clickType == ClickType.RIGHT) {
 			// Get the number of empty slots directly without iterating over the inventory
 			ItemEnchantmentsComponent ebookEnchants = EnchantmentHelper.getEnchantments(slotStack);
-			System.out.println(ebookEnchants.getSize());
-			System.out.println(ebookEnchants.getEnchantmentEntries());
 			for (Object2IntMap.Entry<RegistryEntry<Enchantment>> enchantment : ebookEnchants.getEnchantmentEntries()) {
 				for (int i = 0; i < enchantment.getIntValue(); i++) {
 					ItemStack paper = new ItemStack(Items.PAPER);
@@ -68,23 +66,21 @@ public class SpellbindingMixin {
 			}
 
 			RegistryEntry<Enchantment> paperEnchantmentEntry = paperEnchants.getEnchantmentEntries().iterator().next().getKey();
+			Enchantment paperEnchantment = paperEnchantmentEntry.value();
 
 			// Use EnchantmentHelper.apply to modify the enchantments
 			EnchantmentHelper.apply(slotStack, builder -> {
 				int currentLevel = bookEnchants.getLevel(paperEnchantmentEntry);
-				if (currentLevel > 0) {
-					// Enchantment exists, increase the level
+				int maxLevel = paperEnchantment.getMaxLevel();
+
+				if (currentLevel < maxLevel) {
+					// Enchantment can be increased
 					builder.set(paperEnchantmentEntry, currentLevel + 1);
-				} else {
-					// Enchantment doesn't exist, add it
-					builder.set(paperEnchantmentEntry, 1);
+					cursorStack.decrement(1);
+					cir.setReturnValue(true);
 				}
 			});
 
-			// Decrement the paper stack
-			cursorStack.decrement(1);
-
-			cir.setReturnValue(true);
 		}
 	}
 }
