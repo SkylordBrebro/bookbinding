@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "spellbinding",
+	"version": "${version}",
+	"name": "Spellbinding",
+	"description": "This Minecraft mod allows players to easily make their own enchanted books!",
+	"authors": [
+		"Surrender"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/spellbinding/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"surrender.spellbinding.Spellbinding"
+		]
+	},
+	"mixins": [
+		"spellbinding.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.9",
+		"minecraft": "~1.21.4",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
